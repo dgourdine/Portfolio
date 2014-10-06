@@ -91,7 +91,7 @@ if [ "$reportType" == "METAR" ] ;
   				
   	else
   		echo "Report Type: N/A" 
-  fi				
+    fi				
 fi 
 
 
@@ -105,17 +105,15 @@ stationType=$(egrep -o 'K[A-Z]{3}' $FILE)
 
 if  [ "$stationType" == "" ] && [ "$stationType" == "$stationType" ]  ;
 	
-  		then
+  	then
   			echo "Station Identifier: N/A" 
 
 	else if [ "$stationType" == "$stationType" ] ;
     	
-    	 then
+    		then
 			echo "Station Identifier: $stationType"
-			
-			
   		
-  fi				
+    fi				
 fi 
 
 
@@ -152,6 +150,7 @@ if [ "$fileTime" > "0" ] ;
   	else
   		echo "File Time: N/A" 				
 fi 
+
 echo
 
 
@@ -299,10 +298,10 @@ skyClearVar1=$(egrep -o 'SK[0-9]{3}' $FILE | sed -n '2!p' | cut -c3  )
 
 if  [ "$skyClearVar1" == "0" ]  ;
 	
-  		then
+  	then
   			skyClearVar1=$(egrep -o 'SK[0-9]{3}' $FILE | sed -n '2!p' | cut -c4-  )		
   	else
-  		skyClearVar1=$(egrep -o 'SK[0-9]{3}' $FILE | sed -n '2!p' | cut -c5-  )		
+  			skyClearVar1=$(egrep -o 'SK[0-9]{3}' $FILE | sed -n '2!p' | cut -c5-  )		
 fi 
 
 
@@ -352,8 +351,8 @@ fewCloudsVar2=$(egrep -o 'FEW[0-9]{3}' $FILE | sed -n '1!p' | cut -c4-  )
 
 if  [ "$fewCloudsVar1" == "0" ]  ;
 	
-  		then
-  			fewCloudsVar1=$(egrep -o 'FEW[0-9]{3}' $FILE | sed -n '2!p' | cut -c5-  )		
+  	then
+  		fewCloudsVar1=$(egrep -o 'FEW[0-9]{3}' $FILE | sed -n '2!p' | cut -c5-  )		
   	else
   		fewCloudsVar1=$(egrep -o 'FEW[0-9]{3}' $FILE | sed -n '2!p' | cut -c4-  )		
 fi 
@@ -408,8 +407,8 @@ scatteredCloudsVar1=$(egrep -o 'SCT[0-9]{3}' $FILE | sed -n '2!p' | cut -c4  )
 
 if  [ "$scatteredCloudsVar1" == "0" ]  ;
 	
-  		then
-  			scatteredCloudsVar1=$(egrep -o 'SCT[0-9]{3}' $FILE | sed -n '2!p' | cut -c5-  )		
+  	then
+  		scatteredCloudsVar1=$(egrep -o 'SCT[0-9]{3}' $FILE | sed -n '2!p' | cut -c5-  )		
   	else
   		scatteredCloudsVar1=$(egrep -o 'SCT[0-9]{3}' $FILE | sed -n '2!p' | cut -c4-  )		
 fi 
@@ -445,8 +444,8 @@ brokenCloudsVar2=$(egrep -o 'BKN[0-9]{3}' $FILE  | sed -n '1!p' | cut -c4 )
 
 if  [ "$brokenCloudsVar1" == "0" ]  ;
 	
-  		then
-  			brokenCloudsVar1=$(egrep -o 'BKN[0-9]{3}' $FILE | sed -n '2!p' | cut -c5-  )		
+  	then
+  		brokenCloudsVar1=$(egrep -o 'BKN[0-9]{3}' $FILE | sed -n '2!p' | cut -c5-  )		
   	else
   		brokenCloudsVar1=$(egrep -o 'BKN[0-9]{3}' $FILE | sed -n '2!p' | cut -c4-  )		
 fi 
@@ -454,8 +453,8 @@ fi
 
 if  [ "$brokenCloudsVar2" == "0" ]  ;
 	
-  		then
-  			brokenCloudsVar2=$(egrep -o 'BKN[0-9]{3}' $FILE | sed -n '1!p' | cut -c5-  )		
+  	then
+  		brokenCloudsVar2=$(egrep -o 'BKN[0-9]{3}' $FILE | sed -n '1!p' | cut -c5-  )		
   	else
   		brokenCloudsVar2=$(egrep -o 'BKN[0-9]{3}' $FILE | sed -n '1!p' | cut -c4-  )		
 fi 
@@ -507,8 +506,8 @@ overcastCloudsVar2=$(egrep -o 'OVC[0-9]{3}' $FILE  | sed -n '1!p' | cut -c4- )
 
 if  [ "$overcastCloudsVar1" == "0" ]  ;
 	
-  		then
-  			overcastCloudsVar1=$(egrep -o 'OVC[0-9]{3}' $FILE | sed -n '2!p' | cut -c5-  )		
+  	then
+  		overcastCloudsVar1=$(egrep -o 'OVC[0-9]{3}' $FILE | sed -n '2!p' | cut -c5-  )		
   	else
   		overcastCloudsVar1=$(egrep -o 'OVC[0-9]{3}' $FILE | sed -n '2!p' | cut -c4-  )		
 fi 
@@ -576,7 +575,6 @@ fi
 
 
 
-
 ################ Prints Weather Conditions
 #
 # Light, Medium, or Heavy Rain
@@ -616,6 +614,7 @@ if [ "$rain" == "-RA" ] ;
 	 fi	
    fi		
 fi
+
 echo
 
 # If the token 'TH' is present, output should read "Thunderstorms reported in the area"
@@ -706,6 +705,7 @@ if [ "$temperature" > "-100000000000" ] && [ "$temperature" != "" ] ;
 		echo "Temperature: N/A"
 		
 fi 
+
 echo	
 
 
@@ -724,8 +724,8 @@ dewPoint=$(egrep -o '[0-9]{2}[/][0-9]{2}[M]?' $FILE | cut -c4 )
 
 if  [ "$dewPoint" == "0" ]  ;
 	
-  		then
-  			dewPoint=$(egrep -o '[0-9]{2}[/][0-9]{2}[M]?' $FILE | cut -c5 ) 
+  	then
+  		dewPoint=$(egrep -o '[0-9]{2}[/][0-9]{2}[M]?' $FILE | cut -c5 ) 
   	else
   		dewPoint=$(egrep -o '[0-9]{2}[/][0-9]{2}[M]?' $FILE | cut -c4-5 )
 fi 

@@ -2,7 +2,7 @@
 
 # Creator: David Gourdine
 # Date: 4/17/14
-# Class: ITEC - 345 
+# Class: ITEC - 325
 
 # Purpose: Create a custom script for your server 
 
@@ -18,7 +18,7 @@
 
 # Instructions: 
 #
-# 1. Create a file called LAB3.py
+# 1. Create a file called madLib.py
 #
 # 2. prompt the user for about 10 words or phrases and store each result in a "Dictionary"
 #	   * There should be a function dedicated to the task of acquiring the user input. 
